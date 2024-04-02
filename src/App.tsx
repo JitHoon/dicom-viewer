@@ -1,5 +1,13 @@
+import Header from '@components/Header';
+import Dicom from '@components/Dicom';
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">DICOM Viewer</h1>;
+  return (
+    <>
+      <Header />
+      <Dicom />
+    </>
+  );
 }
 
 export default App;
