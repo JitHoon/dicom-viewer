@@ -27,8 +27,6 @@ This template provides a minimal setup to get React working in Vite with [HMR(Ho
 
 ### Why Vite (react-swc-ts)
 
-레퍼런스 : [kakao FE 기술 블로그](https://fe-developers.kakaoent.com/2022/220217-learn-babel-terser-swc/)
-
 > Babel vs. Speedy Web Compiler
 
 Babel은 최신 자바스크립트 문법으로 작성된 코드를 구버전 브라우저도 이해할 수 있는 수준의 오래된 자바스크립트 코드로 변환해 주는 트랜스파일러입니다.
@@ -38,6 +36,8 @@ SWC는 자바스크립트 프로젝트의 컴파일과 번들링 모두에 사�
 Next.js에서는 SWC로 교체함으로써 트랜스파일링은 무려 17배나 빨라졌다고 하며, 코드 경량화 작업은 7배가 빨라졌다고 합니다.
 
 SWC라는 툴이 바벨보다 월등하게 빠른 가장 큰 이유는 바로 Rust라는 프로그래밍 언어가 **`이벤트 루프 기반의 싱글 스레드 언어`**인 자바스크립트와는 다르게 **`병렬 처리(물류 센터로 치면 여러 개의 컨베이어 벨트)`**가 가능하도록 설계되었기 때문에, Rust 언어로 작성된 SWC는 의존성이 없는 파일들을 동시에 변환할 수 있습니다.
+
+레퍼런스 : [kakao FE 기술 블로그](https://fe-developers.kakaoent.com/2022/220217-learn-babel-terser-swc/)
 
 ### Vite + Tailwind
 
