@@ -38,6 +38,20 @@ const Header = ({ currentEl }: { currentEl: HTMLDivElement | undefined }) => {
     }
   };
 
+  const rotateHandler = () => {
+    cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
+      mouseButtonMask: 1
+    });
+    if (currentEl) {
+      const viewport = cornerstone.getViewport(currentEl);
+
+      if (viewport) {
+        viewport.rotation += 30;
+        cornerstone.setViewport(currentEl, viewport);
+      }
+    }
+  };
+
   return (
     <header className="box-border flex h-[116px] w-full items-center justify-between gap-12 border-b-[5px] border-solid border-b-[#0F62FE] px-[30px] py-[47px]">
       <h1 className="whitespace-nowrap text-left text-xl font-bold leading-[10px]">
@@ -54,7 +68,9 @@ const Header = ({ currentEl }: { currentEl: HTMLDivElement | undefined }) => {
           <button className="feat-btn" onClick={flipVHandler}>
             Filp V
           </button>
-          <button className="feat-btn">Rotate Delta 30</button>
+          <button className="feat-btn" onClick={rotateHandler}>
+            Rotate Delta 30
+          </button>
           <button className="feat-btn">Invert</button>
           <button className="feat-btn">Apply Colormap</button>
           <button className="feat-btn">Reset</button>
