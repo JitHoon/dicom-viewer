@@ -1,3 +1,4 @@
+import * as cornerstone from 'cornerstone-core';
 import * as cornerstoneTools from 'cornerstone-tools';
 
 const Header = ({ currentEl }: { currentEl: HTMLDivElement | undefined }) => {
@@ -5,6 +6,36 @@ const Header = ({ currentEl }: { currentEl: HTMLDivElement | undefined }) => {
     cornerstoneTools.setToolActiveForElement(currentEl, 'ZoomMouseWheel', {
       mouseButtonMask: 1
     });
+  };
+
+  const flipHHandler = () => {
+    cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
+      mouseButtonMask: 1
+    });
+
+    if (currentEl) {
+      const viewport = cornerstone.getViewport(currentEl);
+
+      if (viewport) {
+        viewport.hflip = !viewport.hflip;
+        cornerstone.setViewport(currentEl, viewport);
+      }
+    }
+  };
+
+  const flipVHandler = () => {
+    cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
+      mouseButtonMask: 1
+    });
+
+    if (currentEl) {
+      const viewport = cornerstone.getViewport(currentEl);
+
+      if (viewport) {
+        viewport.vflip = !viewport.vflip;
+        cornerstone.setViewport(currentEl, viewport);
+      }
+    }
   };
 
   return (
@@ -17,8 +48,12 @@ const Header = ({ currentEl }: { currentEl: HTMLDivElement | undefined }) => {
           <button className="feat-btn" onClick={zoomHandler}>
             Zoom
           </button>
-          <button className="feat-btn">Flip H</button>
-          <button className="feat-btn">Filp V</button>
+          <button className="feat-btn" onClick={flipHHandler}>
+            Flip H
+          </button>
+          <button className="feat-btn" onClick={flipVHandler}>
+            Filp V
+          </button>
           <button className="feat-btn">Rotate Delta 30</button>
           <button className="feat-btn">Invert</button>
           <button className="feat-btn">Apply Colormap</button>
