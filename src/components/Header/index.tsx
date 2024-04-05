@@ -19,11 +19,11 @@ const Header = ({
   };
 
   const flipHHandler = () => {
-    cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
-      mouseButtonMask: 1
-    });
-
     if (currentEl) {
+      cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
+        mouseButtonMask: 1
+      });
+
       const viewport = cornerstone.getViewport(currentEl);
 
       if (viewport) {
@@ -34,11 +34,11 @@ const Header = ({
   };
 
   const flipVHandler = () => {
-    cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
-      mouseButtonMask: 1
-    });
-
     if (currentEl) {
+      cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
+        mouseButtonMask: 1
+      });
+
       const viewport = cornerstone.getViewport(currentEl);
 
       if (viewport) {
@@ -49,10 +49,10 @@ const Header = ({
   };
 
   const rotateHandler = () => {
-    cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
-      mouseButtonMask: 1
-    });
     if (currentEl) {
+      cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
+        mouseButtonMask: 1
+      });
       const viewport = cornerstone.getViewport(currentEl);
 
       if (viewport) {
@@ -63,16 +63,25 @@ const Header = ({
   };
 
   const invertHandler = () => {
-    cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
-      mouseButtonMask: 1
-    });
     if (currentEl) {
+      cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
+        mouseButtonMask: 1
+      });
       const viewport = cornerstone.getViewport(currentEl);
 
       if (viewport) {
         viewport.invert = !viewport.invert;
         cornerstone.setViewport(currentEl, viewport);
       }
+    }
+  };
+
+  const resetHandler = () => {
+    if (currentEl) {
+      cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
+        mouseButtonMask: 1
+      });
+      cornerstone.reset(currentEl);
     }
   };
 
@@ -115,7 +124,9 @@ const Header = ({
             Invert
           </button>
           <button className="feat-btn">Apply Colormap</button>
-          <button className="feat-btn">Reset</button>
+          <button className="feat-btn" onClick={resetHandler}>
+            Reset
+          </button>
         </div>
         <button className="img-btn" onClick={previousHeandler}>
           <span className="px-2">Previous Image</span>
