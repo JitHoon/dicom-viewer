@@ -20,10 +20,6 @@ const Header = ({
 
   const flipHHandler = () => {
     if (currentEl) {
-      cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
-        mouseButtonMask: 1
-      });
-
       const viewport = cornerstone.getViewport(currentEl);
 
       if (viewport) {
@@ -35,10 +31,6 @@ const Header = ({
 
   const flipVHandler = () => {
     if (currentEl) {
-      cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
-        mouseButtonMask: 1
-      });
-
       const viewport = cornerstone.getViewport(currentEl);
 
       if (viewport) {
@@ -50,9 +42,6 @@ const Header = ({
 
   const rotateHandler = () => {
     if (currentEl) {
-      cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
-        mouseButtonMask: 1
-      });
       const viewport = cornerstone.getViewport(currentEl);
 
       if (viewport) {
@@ -64,9 +53,6 @@ const Header = ({
 
   const invertHandler = () => {
     if (currentEl) {
-      cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
-        mouseButtonMask: 1
-      });
       const viewport = cornerstone.getViewport(currentEl);
 
       if (viewport) {
@@ -78,10 +64,6 @@ const Header = ({
 
   const colormapHandler = () => {
     if (currentEl) {
-      cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
-        mouseButtonMask: 1
-      });
-
       const viewport = cornerstone.getViewport(currentEl);
       const colormap = cornerstone.colors.getColormap('jet', { name: 'Jet' });
 
@@ -96,9 +78,6 @@ const Header = ({
 
   const resetHandler = () => {
     if (currentEl) {
-      cornerstoneTools.setToolEnabledForElement(currentEl, 'ZoomMouseWheel', {
-        mouseButtonMask: 1
-      });
       cornerstone.reset(currentEl);
     }
   };
