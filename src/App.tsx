@@ -11,8 +11,8 @@ function App() {
   const dicomARef = createRef<HTMLDivElement>();
   const dicomBRef = createRef<HTMLDivElement>();
   const [currentEl, setCurrentEl] = useState<HTMLDivElement>();
-  const [currentImageA, _setCurrentImageA] = useState<number>(0);
-  const [currentImageB, _setCurrentImageB] = useState<number>(1);
+  const [currentImageA, setCurrentImageA] = useState<number>(0);
+  const [currentImageB, setCurrentImageB] = useState<number>(1);
 
   const imageId_1 =
     'https://rawgit.com/cornerstonejs/cornerstoneWebImageLoader/master/examples/Renal_Cell_Carcinoma.jpg';
@@ -81,9 +81,32 @@ function App() {
       } else return pre;
     });
 
+  // change imageA
+  useEffect(() => {
+    if (currentEl) {
+      cornerstone.loadAndCacheImage(imageIds[currentImageA]).then(image => {
+        cornerstone.displayImage(currentEl, image);
+      });
+    }
+  }, [currentImageA]);
+
+  // change imageB
+  useEffect(() => {
+    if (currentEl) {
+      cornerstone.loadAndCacheImage(imageIds[currentImageB]).then(image => {
+        cornerstone.displayImage(currentEl, image);
+      });
+    }
+  }, [currentImageB]);
+
   return (
     <>
-      <Header currentEl={currentEl} />
+      <Header
+        currentEl={currentEl}
+        setCurrentImageA={setCurrentImageA}
+        setCurrentImageB={setCurrentImageB}
+        imageIds={imageIds}
+      />
       <main className="box-border flex h-[85vh] w-full items-center justify-center">
         <div
           id="A"
